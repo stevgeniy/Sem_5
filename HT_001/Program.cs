@@ -1,34 +1,34 @@
 ﻿int arrayLength = GetNumberFromUser("Введите длину нового Массива: ", "Ошибка ввода!");
-int[] arrayUser = new int [arrayLength];
-FillArray(arrayUser);
-Console.WriteLine($"[{String.Join("; ", arrayUser)}]");
+int[] arrayRandom = new int [arrayLength];
+FillArray(arrayRandom);
+Chek2array(arrayRandom);
+Console.WriteLine($"[{String.Join("; ", arrayRandom)}]->{Chek2array(arrayRandom)}");
 
-/////////////////////////////ввод массива 
 
+/////////////////////////////Методы:
+int Chek2array(int[] arrayChek)
+{
+   int length = arrayChek.Length;
+   int count = 0;
+   for (int j = 0; j < length; j++)
+   {  
+     if (arrayChek[j]%2 == 0)
+     {
+        count++;
+     }
+   }
+   return count;
+}
 
 void FillArray(int[] array2)
 {
     int length = array2.Length;
    for (int i = 0; i < length; i++)
    {      
-      array2[i] = GetNumberFromUser($"Введите {i} элемент Массива: ", "Ошибка ввода!");
+      array2[i] = new Random().Next(99, 1000);
    }
 }
 
-void PrintArray(int[] array)
-{
-    int length = array.Length;
-    Console.Write("[");
-   for (int i = 0; i < length; i++)
-   {
-      Console.Write($"{array[i]}");
-      if (i < length - 1)
-      {
-        Console.Write(", ");
-      }
-   }
-    Console.Write("]");
-}
 
 int GetNumberFromUser(string message, string errorMessage)
 {
