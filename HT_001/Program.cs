@@ -1,11 +1,10 @@
 ﻿int arrayLength = GetNumberFromUser("Введите длину нового Массива: ", "Ошибка ввода!");
 int[] arrayRandom = new int [arrayLength];
 FillArray(arrayRandom);
-Chek2array(arrayRandom);
-Console.WriteLine($"[{String.Join("; ", arrayRandom)}]->{Chek2array(arrayRandom)}");
+Console.WriteLine($"Внутри массива [{String.Join("; ", arrayRandom)}]-> {Chek2array(arrayRandom)} четных числа");
 
 
-/////////////////////////////Методы:
+/////////////////////////////   Методы:  //////////////////////////
 int Chek2array(int[] arrayChek)
 {
    int length = arrayChek.Length;
