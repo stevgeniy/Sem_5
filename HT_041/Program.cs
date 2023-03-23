@@ -1,24 +1,25 @@
-﻿// Задайте одномерный массив, заполненный случайными числами. 
-// Найдите сумму элементов, стоящих на нечётных позициях.
-//[3, 7, 23, 12] -> 19
-//[-4, -6, 89, 6] -> 0
+﻿// Пользователь вводит с клавиатуры M чисел. 
+// Посчитайте, сколько чисел больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
 
 int arrayLength = GetNumberFromUser("Введите длину нового Массива: ", "Ошибка ввода!");
 int[] arrayRandom = new int [arrayLength];
 FillArray(arrayRandom);
-Console.WriteLine($"Сумма НЕчетных элементов массива [{String.Join("; ", arrayRandom)}]-> {Sum2array(arrayRandom)}");
+Console.WriteLine($"Положительных чисел в массиве [{String.Join("; ", arrayRandom)}]-> {PositivChek(arrayRandom)}");
 
 
 /////////////////////////////   Методы:  //////////////////////////
-int Sum2array(int[] arraySum)
+int PositivChek(int[] userArr)
 {
-   int length = arraySum.Length;
-   int sum = 0;
-   for (int j = 1; j < length; j+=2)
+   int count = 0;
+   int length = userArr.Length;
+   
+   for (int j = 0; j < length; j++)
    {  
-        sum += arraySum[j];
+      if (userArr[j]>0) count++;
    }
-   return sum;
+   return count;
 }
 
 void FillArray(int[] array2)
@@ -26,7 +27,7 @@ void FillArray(int[] array2)
     int length = array2.Length;
    for (int i = 0; i < length; i++)
    {      
-      array2[i] = new Random().Next(0, 1000);
+      array2[i] = GetNumberFromUser($"Введите {i} элемент Массива: ", "Ошибка ввода!");
    }
 }
 

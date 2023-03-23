@@ -40,7 +40,7 @@ int GetNumberFromUser(string message, string errorMessage)
     {
         Console.Write(message);
         bool isCorrect = int.TryParse(Console.ReadLine(), out int usernamber);
-        if (isCorrect && usernamber >= 0)
+        if (isCorrect)
         {
             return usernamber;
         }  
